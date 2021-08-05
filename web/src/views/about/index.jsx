@@ -1,9 +1,7 @@
-import React from 'react'
-
-export default function Index() {
+import React from 'react';
+function About(props) {
   return (
-    <div>
-      About
-    </div>
+    <h1>About1111</h1>
   )
 }
+export default About;
