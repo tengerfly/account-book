@@ -1,6 +1,7 @@
 import Index from '@views/home'
 import Data from '@views/data';
 import User from '@views/user';
+import Login from '@views/login';
 const routes = [
   {
     path: "/",
@@ -13,6 +14,10 @@ const routes = [
   {
     path: "/user",
     component: User
+  },
+  {
+    path: "/login",
+    component: Login
   }
 ];
 
