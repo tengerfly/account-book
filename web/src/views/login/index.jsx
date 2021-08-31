@@ -3,12 +3,13 @@ import { Cell, Input, Button, Checkbox, Toast  } from 'zarm';
 import CustomIcon from '@components/icon'
 import style from './index.module.less';
 import Captcha from "react-captcha-code" // 验证码组件
+import cx from 'classnames'
 function Login() {
   const [username, setUserName] = useState('') // 账号
   const [password, setPassword] = useState('') // 密码
   const [verify, setVerify] = useState('') // 输入的验证码
   const [captcha, setCaptcha] = useState(''); // 验证码的值
-
+  const [type, setType] = useState('1'); // 1表示登录  2 表示注册
   const handleCaptchaChange = (value) => {
     setVerify('')
     setCaptcha(value)
@@ -47,7 +48,8 @@ function Login() {
     <div className={style.auth}>
       <div className={style.head} />
       <div className={style.tab}>
-        <span>注册</span>
+        <span className={cx({ [style.active]: type == '1' })} onClick={() => setType('1')}>登录</span>
+        <span className={cx({ [style.active]: type == '2' })} onClick={() => setType('2')}>注册</span>
       </div>
       <div className={style.form}>
         <Cell icon={<CustomIcon type="zhanghao" />}>
@@ -80,11 +82,11 @@ function Login() {
         </Cell>
       </div>
       <div className={style.operation}>
-        <div className={style.agree}>
+        { type === '2' ? (<div className={style.agree}>
           <Checkbox />
           <label className="text-light">阅读并同意<a>《掘掘手札条款》</a></label>
-        </div>
-        <Button onClick={handleSubmit} block theme="primary">注册</Button>
+        </div>): null}
+        <Button onClick={handleSubmit} block theme="primary">{type === '1' ? '登 录' : '注 册'}</Button>
       </div>
     </div>
   )

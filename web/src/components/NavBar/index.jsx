@@ -18,6 +18,8 @@ const tabs = [{
   type: 'wode'
 }]
 function NavBar({showNav}) {
+  // 这里使用useLocation获取当前的路径
+  // useLocation在组件内执行，必须被Router包裹
   const [activeKey, setActiveKey] = useState(useLocation().pathname)
   const history = useHistory()
   const changeTab = (path) => {
