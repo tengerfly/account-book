@@ -28,3 +28,23 @@ module.exports = appInfo => {
     ...userConfig,
   };
 };
+
+exports.mysql = {
+  // 单数据库信息配置
+  client: {
+    // host
+    host: 'localhost',
+    // 端口号
+    port: '3306',
+    // 用户名
+    user: 'root',
+    // 密码
+    password: '数据库密码', // 初始化密码，没设置的可以不写
+    // 数据库名
+    database: 'test', // 我们新建的数据库名称
+  },
+  // 是否加载到 app 上，默认开启
+  app: true,
+  // 是否加载到 agent 上，默认关闭
+  agent: false,
+};
