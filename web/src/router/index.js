@@ -1,14 +1,23 @@
-import Index from './../views/index'
-import About from './../views/about'
-
+import Index from '@views/home'
+import Data from '@views/data';
+import User from '@views/user';
+import Login from '@views/login';
 const routes = [
   {
     path: "/",
     component: Index
   },
   {
-    path: "/about",
-    component: About
+    path: "/data",
+    component: Data
+  },
+  {
+    path: "/user",
+    component: User
+  },
+  {
+    path: "/login",
+    component: Login
   }
 ];
 
